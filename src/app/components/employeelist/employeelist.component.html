@@ -1,0 +1,35 @@
+<h1 style="background-color: peachpuff;">Employee list: </h1>
+<div class="well">
+    <form class="form-inline">
+        <div class="from-group">
+            <input placeholder="Event Name" class="form-control" #eventname />
+        </div>
+        <div class="from-group">
+            <input placeholder="Description" class="form-control" #desciption />
+        </div>
+        <div class="from-group">
+            <input placeholder="Speaker" class="form-control" #speaker />
+        </div>
+        <button (click)="addEvent(eventname.value,desciption.value,speaker.value )" type="button">Add New Event</button>
+    </form>
+</div>
+
+<table style="width: 800px;" align="center">
+  
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Speaker</th>          
+        </tr>
+                
+        <tr *ngFor="let e of events">
+            <td>{{e.id}}</td>    
+            <td>{{e.name}}</td>  
+            <td>{{e.description}}</td>
+            <td>{{e.speaker}}</td>
+            <th><button class="btn btn-danger" (click)="deleteEventfromService(e)">Delete</button></th>                                         
+        </tr>      
+</table>
+
+
